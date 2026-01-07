@@ -88,18 +88,19 @@ docker rm <container_id>
 # A Dockerfile is a text file that contains instructions to build a Docker image.
 
 Example Dockerfile
-
+```
 FROM ubuntu
 RUN apt-get update
 CMD ["echo", "Hello Docker"]
-
+```
 docker build -t myimage .
 
 ## Cleanup Commands
+```
 docker container prune
 docker image prune
 docker system prune -a --volumes
-
+```
 
 ### 📚 Reference Blog (Read More)
 
