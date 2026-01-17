@@ -41,69 +41,77 @@ replicas: 3
 image: nginx:latest
 The system continuously ensures that the live cluster matches this declaration.
 ```
-⚙️ What Is Argo CD?
-Argo CD is a GitOps continuous delivery tool for Kubernetes.
+## ⚙️ What Is Argo CD?
 
-It runs inside the cluster and:
+**Argo CD** is a GitOps continuous delivery tool for Kubernetes.
 
-Watches a Git repository
+It runs **inside the cluster** and:
 
-Compares Git state with cluster state
+- Watches a Git repository  
+- Compares Git state with cluster state  
+- Automatically synchronizes differences  
+- Provides a visual dashboard (UI)  
 
-Automatically synchronizes differences
+---
 
-Provides a visual dashboard (UI)
+## 🔄 How Argo CD Works
 
-🔄 How Argo CD Works
-Developer pushes code or configuration to Git
-
-Git repository contains Kubernetes manifests
-
-Argo CD monitors the repository
-
-Argo CD detects changes
-
-Argo CD applies updates to the cluster
-
-Cluster state matches the Git state
+1. Developer pushes code or configuration to Git  
+2. Git repository contains Kubernetes manifests  
+3. Argo CD monitors the repository  
+4. Argo CD detects changes  
+5. Argo CD applies updates to the cluster  
+6. Cluster state matches the Git state  
 
 🔁 This loop runs continuously.
 
-🔁 Push-Based vs Pull-Based Deployment
-❌ Push-Based (Traditional CI/CD)
-Jenkins or GitHub Actions push changes to the cluster
+---
 
-Requires cluster credentials outside the cluster
+## 🔁 Push-Based vs Pull-Based Deployment
 
-Higher security risk
+### ❌ Push-Based (Traditional CI/CD)
 
-✅ Pull-Based (GitOps + Argo CD)
-Argo CD runs inside the cluster
+- Jenkins or GitHub Actions push changes to the cluster  
+- Requires cluster credentials outside the cluster  
+- Higher security risk  
 
-Pulls changes directly from Git
+---
 
-No external cluster access required
+### ✅ Pull-Based (GitOps + Argo CD)
 
-🔐 Secure by design
+- Argo CD runs inside the cluster  
+- Pulls changes directly from Git  
+- No external cluster access required  
 
-♻️ Self-Healing & Rollbacks
-Self-Healing
+🔐 **Secure by design**
+
+---
+
+## ♻️ Self-Healing & Rollbacks
+
+### Self-Healing
+
 If someone manually changes the cluster:
 
+```bash
 kubectl delete pod
-Argo CD detects the drift and restores the desired state automatically.
+```
 
-Easy Rollbacks
+## ♻️ Easy Rollbacks
+
 Rollback is as simple as:
 
 git revert
+
+
 No scripts
 
 No panic
 
 Just Git history ❤️
 
-🔐 Security Benefits of GitOps
+## 🔐 Security Benefits of GitOps
+
 No shared cluster credentials
 
 Git controls access and approvals
@@ -114,17 +122,19 @@ Clear PR-based workflows
 
 Git becomes your security gate.
 
-🔀 GitOps Workflow (High-Level)
+## 🔀 GitOps Workflow (High-Level)
 ```
 Developer → Git Commit → Git Repository
                             ↓
                         Argo CD
                             ↓
                        Kubernetes
+
 ```
 Everything flows through Git.
 
-👥 Who Should Use GitOps?
+## 👥 Who Should Use GitOps?
+
 GitOps is ideal for:
 
 Kubernetes teams
@@ -139,7 +149,8 @@ Students learning modern DevOps
 
 If you use Kubernetes → GitOps is worth learning.
 
-🧰 GitOps Tools Ecosystem
+## 🧰 GitOps Tools Ecosystem
+
 Common tools used in GitOps:
 
 Argo CD – Continuous Delivery
